@@ -55,6 +55,7 @@ for(let t=0; t<loginformElements.length-1; t++){
         if(checkArr.every(elem => elem.length > 0)){
                 login.disabled = false
                 login.classList.toggle('opacity')
+                login.classList.toggle('cursor')
         }
     }
         console.log(loginformElements[0].value)

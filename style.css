@@ -62,3 +62,6 @@ p{
 .opacity{
   opacity: 0.7;
 }
+.cursor{
+  cursor: pointer;
+}
