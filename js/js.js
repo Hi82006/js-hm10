@@ -8,6 +8,12 @@ let username = document.querySelector('#name');
 let password = document.querySelector('#password');
 let confirmPassword = document.querySelector ('#confirmPassword');
 const newUser = new Object
+function stopDefAction(evt) {
+    evt.preventDefault();
+}
+document.querySelector('#form').addEventListener(
+    'click', stopDefAction, false
+);
 submit.onclick = function(e){
     let isValid = true;
     for(let i=0; i<formElements.length-1; i++){
