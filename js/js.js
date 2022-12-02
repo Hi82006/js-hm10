@@ -8,13 +8,16 @@ let username = document.querySelector('#name');
 let password = document.querySelector('#password');
 let confirmPassword = document.querySelector ('#confirmPassword');
 const newUser = new Object
+
 function stopDefAction(evt) {
     evt.preventDefault();
 }
-document.querySelector('#form').addEventListener(
+submit.addEventListener(
     'click', stopDefAction, false
 );
-submit.onclick = function(e){
+submit.addEventListener(
+    'click', checkReg, false)
+function checkReg(){
     let isValid = true;
     for(let i=0; i<formElements.length-1; i++){
         let element = formElements[i];
@@ -26,7 +29,6 @@ submit.onclick = function(e){
             isValid = false;
         }
         if(!!isValid){
-            e.preventDefault();
             document.querySelector("#form").classList.toggle('hide');
             alert('Регистрация прошла успешно');
             document.querySelector(".sign").setAttribute('value','Sign');
@@ -66,12 +68,17 @@ for(let t=0; t<loginformElements.length-1; t++){
     }
         console.log(loginformElements[0].value)
 }
-login.onclick = function(){
-    if(loginformElements[0].value == newUser.username && loginformElements[1].value == newUser.password){
-        alert('Вы успешно авторизовались')
+function autorization(){
+        if(loginformElements[0].value == newUser.username && loginformElements[1].value == newUser.password){
+            alert('Вы успешно авторизовались')
+            div.classList.toggle('hide')
+        }
+        else{
+            alert('Логин или пароль неверны')
+        }
     }
-    else{
-        alert('Логин или пароль неверны')
-    }
-}
+login.addEventListener(
+    'click', autorization, false);
+login.addEventListener(
+    'click', stopDefAction, false);
 }
